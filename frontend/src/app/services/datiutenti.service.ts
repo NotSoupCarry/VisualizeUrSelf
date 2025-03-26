@@ -59,7 +59,7 @@ export class DatiutentiService {
     }
   }
 
-  salvaDatiUtente(datiUtente: DatiUtente): Observable<DatiUtente> {
+  saveDatiUtente(datiUtente: DatiUtente): Observable<DatiUtente> {
     const headers = this.createAuthHeaders();
     return this.http.post<DatiUtente>(`${this.apiUrl}`, datiUtente, {
       headers,

@@ -86,7 +86,7 @@ export class UtentedatiComponent implements OnInit {
     };
 
     // Invia al servizio per il salvataggio
-    this.datiUtenti.salvaDatiUtente(nuovoDatiUtente).subscribe(
+    this.datiUtenti.saveDatiUtente(nuovoDatiUtente).subscribe(
       (response) => {
         console.log('Dati utente creati con successo', response);
         this.datiUtente = response; // Aggiorna i dati utente
