@@ -37,7 +37,7 @@
         required
       />
     </div>
-    
+
     <div class="form-group">
       <label for="dataFine">Data Fine</label>
       <input
@@ -64,9 +64,7 @@
       </select>
     </div>
 
-    <button type="submit" class="btn btn-primary">
-      Aggiungi Task
-    </button>
+    <button type="submit" class="btn btn-primary">Aggiungi Task</button>
   </form>
 
   <hr />
@@ -74,29 +72,32 @@
   <!-- Elenco delle task -->
   <h2>Elenco Task</h2>
   <ul class="list-group">
-    <li
-      class="list-group-item"
-      *ngFor="let task of tasks"
-    >
+    <li class="list-group-item" *ngFor="let task of tasks">
       <h5>{{ task.titolo }}</h5>
       <p>{{ task.descrizione }}</p>
       <p><strong>Data Inizio:</strong> {{ task.dataInizio }}</p>
       <p><strong>Data Fine:</strong> {{ task.dataFine }}</p>
       <p><strong>Tipo di Lavoro:</strong> {{ task.tipoLavoro }}</p>
-      <p><strong>Stato:</strong>   {{ task.risolta === true ? 'Risolto' : (task.risolta === false ? 'Non Risolto' : 'Stato Non Definito') }}</p>
-      <button
-        class="btn btn-danger btn-sm"
-        (click)="deleteTask(task.id!)"
-      >
+      <p>
+        <strong>Stato:</strong>
+        {{
+          task.risolta === true
+            ? "Risolto"
+            : task.risolta === false
+            ? "Non Risolto"
+            : "Stato Non Definito"
+        }}
+      </p>
+      <button class="btn btn-danger btn-sm" (click)="deleteTask(task.id!)">
         Elimina
       </button>
       <button
         class="btn btn-secondary btn-sm"
         (click)="toggleTaskResolved(task.id!, !task.risolta)"
       >
-        {{ task.risolta ? 'Segna come Non Risolto' : 'Segna come Risolto' }}
+        {{ task.risolta ? "Segna come Non Risolto" : "Segna come Risolto" }}
       </button>
     </li>
   </ul>
+  <app-utentedati></app-utentedati>
 </div>
-

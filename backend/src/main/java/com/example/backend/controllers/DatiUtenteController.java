@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,12 +20,12 @@ import com.example.backend.services.DatiUtenteService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/datiUtente")
 @RequiredArgsConstructor
 public class DatiUtenteController {
 
     private final DatiUtenteService datiUtenteService;
-
 
     @PostMapping()
     public ResponseEntity<String> saveDatiUtente(@RequestBody DatiUtente datiUtente) {
@@ -41,7 +42,6 @@ public class DatiUtenteController {
         DatiUtente datiAggiornati = datiUtenteService.aggiornaDatiUtente(utenteId, peso, altezza);
         return ResponseEntity.ok(datiAggiornati);
     }
-
 
     @GetMapping("/{utenteId}")
     public ResponseEntity<Optional<DatiUtente>> getDatiUtente(@PathVariable(name = "utenteId") Long utenteId) {

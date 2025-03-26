@@ -1,0 +1,35 @@
+<div *ngIf="!datiUtente">
+  <h2>Inserisci i tuoi Dati</h2>
+  <form (ngSubmit)="inserisciDatiUtente()">
+    <div>
+      <label for="peso">Peso (kg):</label>
+      <input
+        type="number"
+        id="peso"
+        [(ngModel)]="nuovoPeso"
+        name="peso"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="altezza">Altezza (m):</label>
+      <input
+        type="number"
+        id="altezza"
+        [(ngModel)]="nuovaAltezza"
+        name="altezza"
+        required
+      />
+    </div>
+
+    <button type="submit">Inserisci Dati</button>
+  </form>
+</div>
+
+<div *ngIf="datiUtente">
+  <h2>Dati dell'Utente</h2>
+  <p><strong>Pesatura:</strong> {{ datiUtente.peso }} kg</p>
+  <p><strong>Altezza:</strong> {{ datiUtente.altezza }} m</p>
+  <p><strong>IMC:</strong> {{ datiUtente.ibm | number : "1.1-2" }}</p>
+</div>
