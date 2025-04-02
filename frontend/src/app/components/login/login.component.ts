@@ -31,7 +31,6 @@ export class LoginComponent {
 
     this.authService.login(authRequest).subscribe({
       next: (response) => {
-        console.log('Login success:', response);
 
         // Controlla il ruolo dell'utente
         if (response.role === Ruolo.USER) {

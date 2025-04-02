@@ -14,7 +14,6 @@ export class DatiutentiService {
 
   private getAuthHeaders(): HttpHeaders {
     const token = this.authService.getToken(); // Ottieni il token da AuthService
-    console.log(token);
     return new HttpHeaders({
       'Authorization': `Bearer ${token}` // Aggiungi l'header di autorizzazione
     });

@@ -1,5 +1,4 @@
 import { Ruolo } from "../enums/Ruolo";
-import { UtenteTasksDelGiorno } from "./UtenteTasksDelGiorno";
 
 export interface Utente {
   id?: number | null;
@@ -7,5 +6,4 @@ export interface Utente {
   password?: string;
   email?: string;
   ruolo?: Ruolo;  
-  tasksDelGiorno?: UtenteTasksDelGiorno[];
 }

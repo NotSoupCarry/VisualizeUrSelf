@@ -1,7 +1,5 @@
 package com.example.backend.models;
 
-import java.util.Set;
-
 import com.example.backend.enums.Ruolo;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,8 +27,4 @@ public class Utente {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Ruolo ruolo;
-
-    // Relazione Many-to-Many con TasksDelGiorno
-    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<UtenteTasksDelGiorno> tasksDelGiorno;
 }

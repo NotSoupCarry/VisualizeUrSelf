@@ -33,7 +33,6 @@ export class RegisterComponent {
 
     this.authService.register(newUser).subscribe({
       next: (response) => {
-        console.log('Registrazione avvenuta con successo:', response);
         this.router.navigate(['/login']); // Redirige al login dopo la registrazione
       },
       error: (error) => {

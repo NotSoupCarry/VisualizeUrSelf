@@ -9,7 +9,6 @@ import { roleUserGuard } from './securities/guards/role-user.guard';
 import { roleAdminGuard } from './securities/guards/role-admin.guard';
 import { authGuard } from './securities/guards/auth.guard';
 import { DatiutenteComponent } from './components/datiutente/datiutente.component';
-import { UserTaskDelGiornoComponent } from './components/user-task-del-giorno/user-task-del-giorno.component';
 import { FirstLoginPageComponent } from './components/first-login-page/first-login-page.component';
 import { firstLoginGuard } from './securities/guards/first-login.guard';
 
@@ -19,7 +18,6 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [authGuard] },
   { path: 'firstLogin', component: FirstLoginPageComponent, canActivate: [firstLoginGuard] },
   { path: 'userpage', component: UserpageComponent, canActivate: [roleUserGuard] },
-  { path: 'userTaskDelGiorno', component: UserTaskDelGiornoComponent, canActivate: [roleUserGuard] },
   { path: 'userprofile', component: DatiutenteComponent, canActivate: [roleUserGuard] },
   { path: 'adminpage', component: AdminPageComponent, canActivate: [roleAdminGuard] },
   { path: '**', redirectTo: '' } // Reindirizza alla home se la pagina non esiste

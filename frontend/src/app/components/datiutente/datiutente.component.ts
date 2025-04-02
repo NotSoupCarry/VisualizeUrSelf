@@ -118,7 +118,6 @@ export class DatiutenteComponent implements OnInit {
       const dati = await firstValueFrom(this.datiutentiService.getDatiUtente(this.utenteId));
       if (dati) {
         this.datiUtente = dati; // Aggiorna il modello con i dati ricevuti
-        console.log('Dati utente caricati con successo:', dati);
       }
     } catch (error) {
       console.error('Errore nel caricamento dei dati utente:', error);

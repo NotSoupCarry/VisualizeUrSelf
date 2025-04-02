@@ -7,12 +7,11 @@ import { TipoLavoro } from '../../enums/TipoLavoro';
 import { firstValueFrom } from 'rxjs';
 import dayjs from 'dayjs';
 import { AuthService } from '../../services/auth.service';
-import { DatiutenteComponent } from '../datiutente/datiutente.component';
 
 @Component({
   selector: 'app-userpage',
   standalone: true,
-  imports: [FormsModule, CommonModule, DatiutenteComponent],
+  imports: [FormsModule, CommonModule],
   templateUrl: './userpage.component.html',
   styleUrls: ['./userpage.component.css'],
 })
@@ -77,7 +76,6 @@ export class UserpageComponent implements OnInit {
   async addTask(): Promise<void> {
     // Verifica se tutti i campi obbligatori sono stati riempiti
     if (!this.newTask.titolo || !this.newTask.descrizione || !this.newTask.dataInizio || !this.newTask.dataFine || !this.newTask.tipoLavoro || !this.utenteId) {
-      console.log('Dati incompleti');
       return;
     }
 
@@ -98,7 +96,6 @@ export class UserpageComponent implements OnInit {
         utente: { id: this.utenteId } // Usa l'ID ottenuto dal servizio AuthService
       };
 
-      console.log(taskToSend);
       await firstValueFrom(this.taskService.createTask(taskToSend)); // Aggiungi la task attraverso il servizio
       this.loadTask(); // Ricarica la lista delle task
 
@@ -128,7 +125,6 @@ export class UserpageComponent implements OnInit {
     try {
       await firstValueFrom(this.taskService.deleteTask(id)); // Elimina la task
     } catch (error) {
-      console.error('Errore nell\'eliminazione della task:', error);
     }
     this.loadTask(); // Ricarica la lista delle task
   }
@@ -147,7 +143,6 @@ export class UserpageComponent implements OnInit {
 
       // Aggiorna le liste delle task risolte e non risolte
     } catch (error) {
-      console.error('Errore nell\'aggiornamento della task:', error);
     }
     this.loadTask(); // Ricarica la lista delle task
   }

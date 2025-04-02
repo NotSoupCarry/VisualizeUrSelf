@@ -64,11 +64,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.router.navigate(['/userpage']);
   }
 
-  onUserTaskDelGiornoClick(){
-    this.isSidebarOpen = false;
-    this.router.navigate(['/userTaskDelGiorno']);
-  }
-
   onTasksDelGiornoClick() {
     this.isSidebarOpen = false;
     this.router.navigate(['/adminpage']);
